@@ -15,14 +15,16 @@ def return_missing_values(array : List,lower : int, upper: int) -> List:
     result_list = []
     
     if array:
-        prev_num = array[0]
+        prev_num = lower - 1
         for value in array:
-            if prev_num != value and value - 1 != prev_num:                     
+            # print("prev_num :",prev_num," ","value : ",value)
+            if prev_num != value and value - 1 != prev_num:            
+                # print("in if")         
                 result_list.append(make_range(prev_num + 1, value - 1))
                 prev_num = value                
             else:
                 prev_num = value   
-                      
+
         if array[-1] != upper:
                 missing = make_range(array[-1] + 1, upper)
                 result_list.append(missing)
