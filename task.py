@@ -21,14 +21,15 @@ def return_missing_values(array : List,lower : int, upper: int) -> List:
                 result_list.append(make_range(prev_num + 1, value - 1))
                 prev_num = value                
             else:
-                prev_num = value         
+                prev_num = value   
+                      
+        if array[-1] != upper:
+                missing = make_range(array[-1] + 1, upper)
+                result_list.append(missing)
 
     else:
         result_list.append(make_range(lower,upper))
 
-    if array[-1] != upper:
-            missing = make_range(array[-1] + 1, upper)
-            result_list.append(missing)
 
     return result_list
 
